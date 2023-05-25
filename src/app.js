@@ -6,9 +6,10 @@ const Categories = require("./models/categories.models");
 const Users = require("./models/users.models");
 const userRoutes = require('./routes/users.routes');
 const todoRoutes = require('./routes/todos.routes');
-const categorieRoutes = require('./routes/categories.routes')
+const categorieRoutes = require('./routes/categories.routes');
 
 const initModels = require("./models/initModels");
+const cors = require('cors');
 
 initModels();
 
@@ -27,6 +28,7 @@ db.sync()
     });
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 
